@@ -1,4 +1,5 @@
 import subprocess
+import sys
 
 def kör_git_kommando(kommando):
     try:
@@ -18,15 +19,22 @@ def spara_versions_fil(version):
     with open("release.txt", "w") as fil:
         fil.write(version)
 
-version = öppna_versions_fil()
-print(f"Nuvarande version: {version}")
+if __name__ == "__main__":
+    input_PAT = sys.argv[1]
 
-spara_versions_fil(version)
+    version = öppna_versions_fil()
+    print(f"Nuvarande version: {version}")
 
-print(f"Kör 'branch release-{version}':")
-output = kör_git_kommando(f"git branch release-{version}")
-print(output)
+    spara_versions_fil(version)
 
-output = kör_git_kommando(f"git push origin release-{version}")
-print(output)
+    print(f"Kör 'branch release-{version}':")
+    kör_git_kommando(f"git checkout -b release-{version}")
 
+    print(f"Kör 'git add release.txt':")
+    kör_git_kommando(f"git add release.txt")
+
+    print(f"Kör git commit -m 'Uppdaterat version till {version}':")
+    kör_git_kommando(f"git commit -m \"Skapat release branch\"")
+
+    output = kör_git_kommando(f"git push https://felroo:{input_PAT}@github.com/felroo/DemoRepoPython.git release-{version}")
+    print(output)
