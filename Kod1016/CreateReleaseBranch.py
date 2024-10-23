@@ -9,14 +9,14 @@ def kör_git_kommando(kommando):
         return f"Ett fel uppstod: {error}"
 
 def öppna_versions_fil():
-    with open("release.txt", "r") as fil:
+    with open("Kod1016/release.txt", "r") as fil:
         currentVersion = fil.read()
         currentVersion = currentVersion.split(".") # ["1", "0", "0"]
         newVersion = int(currentVersion[0]) + 1
         return f"{newVersion}.0.0"
 
 def spara_versions_fil(version):
-    with open("release.txt", "w") as fil:
+    with open("Kod1016/release.txt", "w") as fil:
         fil.write(version)
 
 if __name__ == "__main__":
