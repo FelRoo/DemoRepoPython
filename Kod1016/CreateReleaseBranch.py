@@ -31,7 +31,7 @@ if __name__ == "__main__":
     kör_git_kommando(f"git checkout -b release-{version}")
 
     print(f"Kör 'git add release.txt':")
-    kör_git_kommando(f"git add release.txt")
+    kör_git_kommando(f"git add Kod1016/release.txt")
 
     print(f"Kör git commit -m 'Uppdaterat version till {version}':")
     kör_git_kommando(f"git commit -m \"Skapat release branch\"")

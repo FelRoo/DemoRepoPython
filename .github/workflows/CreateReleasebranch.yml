@@ -19,5 +19,10 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Set github info
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+
       - name: Run Python script
         run: python Kod1016/CreateReleaseBranch.py ${{ secrets.PAT }}
