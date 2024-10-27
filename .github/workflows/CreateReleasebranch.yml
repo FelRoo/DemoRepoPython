@@ -25,4 +25,6 @@ jobs:
           git config --global user.name "GitHub Actions"
 
       - name: Run Python script
-        run: python Kod1016/CreateReleaseBranch.py ${{ secrets.PAT }}
+        run: python Kod1016/CreateReleaseBranch.py ${{ secrets.PAT }} #Kräver att man aktiverar read/write permissions på workflows under Settings > Actions > General > Workflow permissions.
+
+
